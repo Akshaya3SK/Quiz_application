@@ -66,15 +66,15 @@ pip install -r requirements.txt
 python app.py
 
 
-##🔐 Admin Credentials (Default)
+###🔐 Admin Credentials (Default)
 
 Username: admin1
 Password: admin123*i
 
 
-##📊 Sample Score Visualization
+###📊 Sample Score Visualization
 After completing quizzes, users can view a summary of their highest scores across all quizzes in a bar chart, generated using Matplotlib and rendered directly in the browser.
 
-#🙋‍♀️ Author
+###🙋‍♀️ Author
 Akshaya SK
 B.Tech (IT) @ CEG | B.S. Data Science @ IITM
