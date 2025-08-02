@@ -1,0 +1,133 @@
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh; 
+        text-align: center; 
+    }
+
+
+    #instructions {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+    }
+
+    #instructions h2 {
+        color: #0b3e74;
+        margin-bottom: 10px;
+    }
+
+    #instructions h4 {
+        color: #555;
+        margin-bottom: 20px;
+        font-weight: normal;
+    }
+
+    #instructions p {
+        color: #444;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    #instructions button {
+        background-color: #0b3e74;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    #instructions button:hover {
+        background-color: #084166;
+    }
+
+    #timer {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #e63946;
+    }
+
+    #question {
+        display: none;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    #question_area p {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    #question_area label {
+        font-size: 16px;
+        margin-left: 10px;
+        color: #444;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    #nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+  
+
+    #previous button, #next button {
+        background-color: #0b3e74;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    #previous button:hover, #next button:hover {
+        background-color: #084166;
+    }
+
+    #submit_button {
+        width: 100%;
+        background-color: #e63946;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #submit_button:hover {
+        background-color: #d62828;
+    }

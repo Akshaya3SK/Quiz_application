@@ -1,0 +1,23 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Chapter Selection</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='chapter_selection.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="button-containter">
+            <button class="back" onclick="window.location.href='/back_chapter_selection_user_dashboard/{{user_id}}'">&larr;</button>
+            <h3>The chapters inside {{subject}}</h3>
+        </div>
+        <div class="container">
+            {% for chapter in chapters %}
+                <div onclick="window.location.href='/quiz_page/{{chapter.Chapter_id}}/{{chapter.Chapter_name}}/{{user_id}}'" class="chapter_box">
+                    <div class="chapter_header">{{chapter.Chapter_name}}</div>
+                    <div class="chapter_description">{{chapter.Description}}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

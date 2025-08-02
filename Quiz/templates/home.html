@@ -1,0 +1,18 @@
+<!DOCTYPE html5>
+    <head>
+        <title>Home page of Quiz</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+ 
+    </head>
+    <body>
+        <h1>Start enriching your knowledge </h1>
+        <h3>Can test your status in every subject</h3>
+        <form action="/login">
+            <input type="submit" name="submit_button" id="adminpage" value="Admin page">
+            <input type="submit" name="submit_button" id="userpage" value="User page" >
+        </form>
+    </body>
+    <footer>
+        <p>Quiz conducted by iitm...all rights reserved</p>
+    </footer>

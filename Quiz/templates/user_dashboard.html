@@ -1,0 +1,56 @@
+<!doctype html5>
+<html>
+    <head>
+        <title>User Dashboard</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='user_dashboard.css') }}" rel="stylesheet">
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+    </head>
+    <body>
+            <button onclick="toggleDropdown()" class="view-user">
+                <i data-lucide="user"></i>
+            </button>
+        
+            <div id="user-dropdown" class="dropdown-menu hidden">
+                <a href="/profile/{{ user_id }}">Profile</a>
+                <a href="/summary/{{ user_id }}">Summary</a>
+            </div>
+            <div class="button-container">
+                <button class="back" onclick="window.location.href='/back_admin_dashboard_login'">&larr;</button>
+                <div class="heading">
+                            <h1>Welcome to our portal {{name}}</h1>
+                            <h2>Get ready for your quiz...</h2>
+               
+           
+        
+                <div class="container">
+                    {% for subject in subjects %}
+                    <div onclick="window.location.href='/chap_selection/{{subject.Subject_id}}/{{subject.Subject_name}}/{{user_id}}'" class="subject_box">
+                        <div class="subject_header">{{subject.Subject_name}}</div>
+                        <span class="subject_description">{{subject.Description}}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            lucide.createIcons();
+            function toggleDropdown() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+            document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('user-dropdown');
+            const button = document.querySelector('.view-user');
+
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        </script>
+    </body>
+</html>

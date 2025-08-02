@@ -1,0 +1,30 @@
+<!doctype html5>
+    <head>
+        <title>Edit subject</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='edit_subject.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+
+            <div class="button-containter">
+                <button class="back" onclick="window.location.href='/back_display_user_admin_dashboard'">&larr;</button>
+                <h3>Editing subject..</h3>
+            </div>
+            <div id="form">
+                
+                <form action="/modify_subject" method="POST">
+                    <label>Enter subject name</label>
+                    <input type="text" name="subject_name" id="subject_name" value="{{subject.Subject_name}}"><br>
+                    <label>Enter subject code</label>
+                    <input type="text" name="subject_code" id="subject_code" value="{{subject.Subject_id}}" readonly><br>
+                    <label>Description about subject</label>
+                    <input type="textarea" name="subject_description" id="subject_description" value="{{subject.Description}}"><br>
+                    <input type="submit" value="Modify Subject">
+                </form>
+            </div>
+            <script>
+                console.log({{subject.Subject_name}})
+            </script>
+        
+    </body>

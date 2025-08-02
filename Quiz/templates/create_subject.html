@@ -1,0 +1,26 @@
+<!DOCTYPE html5>
+<head>
+    <title>Subject Creation</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='create_subject.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div id="form">
+        <h3>Creation of new subject..</h3>
+        <form action="/create_chapters" method="post">
+            <label>Enter subject name</label>
+            <input type="text" name="subject_name" id="subject_name"><br>
+            <label>Enter subject code</label>
+            <input type="text" name="subject_code" id="subject_code"><br>
+            <label>Description about subject</label>
+            <input type="textarea" name="subject_description" id="subject_description"><br>
+            <input type="submit" value="Create Chapters">
+        </form>
+    </div>
+</body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html5>
+<head>
+    <title>User signup</title>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='user_sign_up.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <form id="formdata">
+        <label>Enter your name</label>
+        <input type="text" name="name" id="name"><br>
+        <label>Enter your mailID</label>
+        <input type="email" name="email" id="email"><br>
+        <label>Enter your Phone number</label>
+        <input type="number" name="phoneno" id="phoneno"><br>
+        <label>Enter your username</label>
+        <input type="text" name="username" id="username"><br>
+        <label>Enter your password</label>
+        <input type="password" name="password" id="password"><br>
+        <label>Reenter your password</label>
+        <input type="password" name="re-password" id="re-password"><br>
+        <button onclick="callfun()">Submit</button>
+    </form>
+    <script>
+        function callfun(){
+            var password1=document.getElementById("password").value;
+            var password2=document.getElementById("re-password").value;
+            if(password1!=password2){
+                alert("The passwords should match");
+            }
+            else{
+                const formdata=document.getElementById("formdata");
+                formdata.action="/user_enter";
+            }
+        }
+    </script>
+</body>
+

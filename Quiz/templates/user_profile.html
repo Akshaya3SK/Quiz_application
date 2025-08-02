@@ -1,0 +1,27 @@
+<!DOCTYPE html5>
+<head>
+    <title>User signup</title>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='user_sign_up.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="button-containter">
+        <button class="back" onclick="window.location.href='/back_profilesummary_user_dashboard/{{username}}'">&larr;</button>
+        <h3>The chapters inside {{subject}}</h3>
+    </div>
+    <form id="formdata" method="POST" action="/submit_profile/{{username}}">
+        <label>Enter your username</label>
+        <input type="text" name="username" id="username" value="{{username}}" readonly><br>
+        <label>Enter your name</label>
+        <input type="text" name="name" id="name" value="{{name}}"><br>
+        <label>Enter your mailID</label>
+        <input type="email" name="email" id="email" value="{{email}}"><br>
+        <label>Enter your Phone number</label>
+        <input type="number" name="phoneno" id="phoneno" value="{{phoneno}}"><br>
+        <button>Change</button>
+
+    </form>
+
+</body>
+

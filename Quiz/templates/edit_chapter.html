@@ -1,0 +1,22 @@
+<!doctype html5>
+<head>
+    <title>Edit chapter</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='edit_subject.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="button-containter">
+        <button class="back" onclick="window.location.href='/create_chapter_subject/{{subject_id}}/{{subject_name}}'">&larr;</button>
+        <h3>Editing chapter..</h3>
+    </div>
+    <form action="/modify_chapter/{{subject_name}}/{{subject_id}}" method="POST">
+        <label>Enter chapter name</label>
+        <input type="text" id="chapter_name" name="chapter_name" value="{{chapter.Chapter_name}}"><br>
+        <label>Enter chapter id</label>
+        <input type="text" id="chapter_id" name="chapter_id" value="{{chapter.Chapter_id}}" readonly><br>
+        <label>Description</label>
+        <input type="text" id="description" name="description" value="{{chapter.Description}}"><br>
+        <input type="submit" value="Modify chapter">
+    </form>
+</body>

@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+    width: 90%; 
+    max-width: 1200px; 
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    margin-bottom: 20px; 
+}
+
+.back {
+    background-color: #002348;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 20px; 
+    position: absolute; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.back:hover {
+    background-color: #004080;
+    transform: scale(1.1);
+}
+
+
+.chapter_box {
+    background-color: #fff;
+    border: 3px solid #333; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+}
+
+.chapter_box:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05); 
+}
+
+.chapter_header {
+    background-color: #0b3e74; 
+    color: #fff; 
+    text-align: center;
+    font-size: 20px;
+    font-weight:100;
+    padding: 20px; 
+    width: 90%; 
+    margin: 0 auto;
+}
+
+/* Description styling */
+.chapter_description {
+    padding: 25px;
+    text-align: center;
+    font-size: 17px;
+    font-weight:90;
+    color: #555; 
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-sizing: border-box; 
+}

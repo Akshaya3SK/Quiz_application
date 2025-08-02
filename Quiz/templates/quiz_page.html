@@ -1,0 +1,23 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Quiz Page</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='quiz_page.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="button-containter">
+            <button class="back" onclick="window.location.href='/back_quiz_page_chapter_selection/{{user_id}}/{{chapter_id}}'">&larr;</button>
+            <h3>The quizzes in {{chapter}}</h3>
+        </div>
+        <div class="container">
+            {% for quiz in quizzes %}
+                <div class="quiz_box" onclick="window.location.href='/start_quiz/{{quiz.Quiz_id}}/{{user_id}}'">
+                    <div class="quiz_header">{{quiz.Quiz_name}}</div>
+                    <div class="quiz_start">Start quiz</div>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

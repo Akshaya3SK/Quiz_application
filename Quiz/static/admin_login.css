@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;   
+    height: 90vh;         
+    background-color: #cecece;
+    color :rgb(0, 0, 0);
+}
+form label,
+form input{
+    margin-bottom:10px;
+    font-size: 18px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    font-size: 16px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 8px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+/* Style the submit button */
+form input[type="submit"] {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #ccc; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    background-color: #f0f0f0; 
+}
+
+form input[type="submit"]:hover {
+    background-color: #ddd; 
+}
+
+
+#submit_admin{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #002348;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+}
+
+#submit_admin:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

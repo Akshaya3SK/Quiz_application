@@ -1,0 +1,18 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Score Page</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='scores.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="button-containter">
+            <button class="back" onclick="window.location.href='/back_scores_quiz_page/{{user_id}}/{{quiz_id}}'">&larr;</button>
+        </div>
+        <div class="container">
+            <h4>Your Score is {{mark}}</h4>
+            <h3>Total time taken : {{time_taken}} minutes</h3>
+        </div>
+    </body>
+</html>

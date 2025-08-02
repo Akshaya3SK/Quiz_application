@@ -1,0 +1,24 @@
+<!DOCTYPE html5>
+<head>
+    <title>Admin Login</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='admin_login.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <form action="/admin_page" method="POST">
+        <label>Admin Name:</label>
+        <input type="text" id="admin_username" name="admin_username"><br>
+        <label>Password</label>
+        <input type="password" id="admin_password" name="admin_password"><br>
+        <input type="submit" name="submit_admin" id="submit_admin" value="Login">
+    </form>
+    <script>
+        window.onload=function(){
+            const alert_msg="{{alert_msg}}"
+            if(alert_msg){
+                alert(alert_msg)
+            }
+        }
+    </script>
+</body>

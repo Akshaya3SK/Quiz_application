@@ -1,0 +1,54 @@
+<!doctype html5>
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='admin_dashboard.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="header-container">
+        <button onclick="window.location.href='/display_user'" class="view-user">
+            <i data-lucide="user"></i> 
+        </button>
+        <div class="heading">
+            <div class="button-containter">
+                <button class="back" onclick="window.location.href='/back_admin_dashboard_login'">&larr;</button>
+                <h2>TALENT QUIZZING</h2>
+                <h3>Welcome to ADMIN DASHBOARD</h3>
+            </div>
+            
+        </div>
+    </div>
+    {% if subjects %}
+        <table>
+            <th>Subject ID</th>
+            <th>Subject Name</th>
+            <th>Subject Description</th>
+            <th>No_of_people_interested</th>
+            <th>No_of_chapters</th>
+            <th></th>
+        </table>
+            {% for subject in subjects %}
+                <table >
+                    <tr>
+                        <td>{{subject.Subject_id}}</td>
+                        <td>{{subject.Subject_name}}</td>
+                        <td>{{subject.Description}}</td>
+                        <td>{{subject.No_of_people_interested}}</td>
+                        <td>{{subject.No_of_chapters_inside}}</td>
+                        <td><a href="/edit_subject/{{subject.Subject_id}}//{{subject.Subject_name}}">Edit subject</a>
+                        <a href="/create_chapter_subject/{{subject.Subject_id}}/{{subject.Subject_name}}">Create/Edit chapters</a>
+                        <a href="/delete_subject/{{ subject.Subject_id }}">Delete Subject</a></td>
+                    </tr>
+                </table>
+            {% endfor %}
+        {% else %}
+            <p>No subjects added yet</p>
+    {% endif %}
+    <div id="create_subject">
+        <a href="/create_subject" id="button">Create subject</a>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>

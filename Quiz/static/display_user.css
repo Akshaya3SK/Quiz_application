@@ -1,0 +1,97 @@
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center elements vertically */
+    align-items: center;    /* Center elements horizontally */
+    height: 90vh;          /* Full viewport height */
+    background-color: #cecece;
+    color :rgb(0, 0, 0);
+    text-align:center;
+}
+.h3 {
+    margin: 0; 
+    font-size: 24px;
+    font-weight: bold;
+    color: #002348;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the heading horizontally */
+    position: relative; /* For absolute positioning of the button */
+    margin-bottom: 20px; /* Adds space below the header */
+}
+
+#back {
+    background-color: #002348;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 20px; 
+    position: absolute; /* Position the button absolutely */
+    left: 20px; /* Align to the left side */
+    top: 50%; 
+    transform: translateY(-50%); /* Center vertically relative to the heading */
+}
+
+#back:hover {
+    background-color: #004080;
+    transform: scale(1.1);
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color:  #002348;
+    color: white;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 10%; 
+}
+
+
+th:nth-child(2), td:nth-child(2) {
+    width: 15%; /* 30% width for Subject Description */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 25%; /* 15% width for No_of_people_interested */
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 15%; /* 10% width for No_of_chapters */
+}
+th:nth-child(5), td:nth-child(5) {
+    width: 10%; /* 10% width for No_of_chapters */
+}
+th:nth-child(6), td:nth-child(6) {
+    width: 10%;
+}
+
+td {
+    background-color: #f9f9f9;
+}

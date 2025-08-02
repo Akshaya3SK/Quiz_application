@@ -1,0 +1,41 @@
+<!doctype html5>
+<head>
+    <title>Display User</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='display_user.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="button-containter">
+        <button id="back" onclick="window.location.href='/back_display_user_admin_dashboard'">&larr;</button>
+        <h3>User List</h3>
+    </div>
+    {% if users %}
+        <table>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>Mail ID</th>
+            <th>Contact</th>
+            <th>Quiz Attended</th>
+            <th></th>
+        </table>
+        {% for user in users %}
+            <table>
+                <td>{{ user.User_id }}</td>
+                <td>{{ user.Name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.Phone_number }}</td>
+                <td>{{ user.quiz_count }}</td>
+                <td>
+                    {% if user.valid|int ==1 %}
+
+                        <button onclick="window.location.href='/block_user/{{ user.User_id }}'">Block User</button>
+                    {% else %}
+                        <button onclick="window.location.href='/unblock_user/{{ user.User_id }}'">Unblock User</button>
+                    {% endif %}
+                </td>
+                </table>
+        {% endfor %}
+    {% endif %}
+    
+</body>

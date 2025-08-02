@@ -1,0 +1,24 @@
+<!doctype html5>
+    <head>
+        <title>Edit Quiz</title>
+        <meta charset="utf-8">
+        <link href="{{ url_for('static', filename='edit_subject.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        
+        <div class="button-containter">
+            <button class="back" onclick="window.location.href='/add_quizzes_chapter/{{chapter_id}}/{{chapter_name}}'">&larr;</button>
+        </div>
+            <div id="form">
+                <h3>Editing quiz..</h3>
+                <form action="/modify_quiz/{{chapter_name}}/{{chapter_id}}" method="POST">
+                    <label>Enter quiz name</label>
+                    <input type="text" name="quiz_name" id="quiz_name" value="{{quiz.Quiz_name}}"><br>
+                    <label>Enter quiz id</label>
+                    <input type="text" name="quiz_id" id="quiz_id" value="{{quiz.Quiz_id}}" readonly><br>
+                    <input type="submit" value="Modify quiz">
+                </form>
+            </div>
+        
+    </body>

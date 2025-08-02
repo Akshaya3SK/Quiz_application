@@ -1,0 +1,39 @@
+<!doctype html5>
+<html>
+<head>
+    <title>User login</title>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='user_login.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <form id="formdata">
+        <h3>Login to continue</h3>
+        <label>User ID</label>
+        <input type="text" id="userid" name="userid"><br>
+        <label>Password</label>
+        <input type="password" id="password" name="password"><br>
+        <div onclick="window.location.href='/user_sign_up'" id="button">Sign up</div>
+        <button onclick="check()">Login </button>
+    </form>
+    <script>
+        window.onload=function(){
+            const alert_msg="{{alert_msg}}"
+            if(alert_msg){
+                alert(alert_msg)
+            }
+        }
+        function check(){
+            const userid=document.getElementById("userid").value
+            const password=document.getElementById("password").value
+            if(userid==="" || password===""){
+                alert("Enter the userid and password")
+            }
+            else{
+                const formdata=document.getElementById("formdata")
+                formdata.action="/user_login"
+            }
+        }
+    </script>
+</body>
+</html>

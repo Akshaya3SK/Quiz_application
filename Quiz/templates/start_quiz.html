@@ -1,0 +1,152 @@
+<!doctype html5>
+<html>
+    <head>
+        <title>Quiz started</title>
+        <meta charset="utf-8">
+        <style>
+            .questions {
+                display : none;
+            }
+            .timer{
+                display : none;
+            }
+        </style>
+            <link href="{{ url_for('static', filename='start_quiz.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div id="instructions">
+            <h2>Instructions before you start your quiz</h2>
+            <h4>Read the below instruction carefully before you start your quiz<br>The timer will start once you click the start button</h4>
+            <p>General instructions</p>
+            <button onclick="display_questions()">Start</button>
+        </div>
+        <div id="timer">Time remaining:{{duration}} </div>
+
+        <div id="question">
+            <div id="question_area"></div>
+            <div id="nav">
+                <div id="previous"></div>
+                <div id="next"></div>
+            </div>
+        </div>
+
+
+        <script>
+            let user_id="{{user_id}}";
+            let quiz_id="{{quiz_id}}";
+            function display_questions() {
+                const question=document.getElementById('question');
+                const instructions=document.getElementById('instructions');
+                const timer=document.getElementById('timer')
+                question.style.display='block';
+                instructions.style.display='none';
+                timer.style.display='block';
+                start_timer();
+                question_change();
+                }
+                let time_taken=0;
+                function start_timer(){
+                    const timeduration = "{{ duration }}"; 
+                    let timeremaining = timeduration * 60;   
+
+                    const timerelement = document.getElementById("timer");
+                    const quizForm = document.getElementById("quizform");
+                    const submitButton = document.getElementById("submitbutton");
+
+                    function formatTime(seconds) {
+                        const minutes = Math.floor(seconds / 60);
+                        const secs = seconds % 60;
+                        return `${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+                    }
+
+                    const countdown = setInterval(() => {
+                        if (timeremaining > 0) {
+                            timeremaining--;
+                            time_taken++;
+                            timerelement.textContent = `Time Remaining: ${formatTime(timeremaining)}`;
+                        } else {
+                            timerelement.textContent = "Time's up!";
+                            for (let i = 0; i < ques.length; i++) {
+                                if (given_answer[i] === ques[i].Correct_option) {
+                                    mark++;
+                                }
+                            }
+                            let timeTakenInMinutes = Math.floor(time_taken / 60);
+                            window.location.href=`/score_page/${mark}/${user_id}/${quiz_id}/${timeTakenInMinutes}`;
+                        }
+                    }, 1000);
+
+            }
+
+            let mark=0
+            const ques={{ questions|tojson }};
+            let ques_no=0;
+            let given_answer=[];
+            function question_change() {        
+                if(ques_no<ques.length){
+                    question_area=document.getElementById('question_area')
+                    question_area.innerHTML= `<form id="quiz_form">
+                <p>${ques[ques_no].Question_Statement}</p>
+                <input type='radio' name='ans' value='${ques[ques_no].Option1}' ${given_answer[ques_no] === ques[ques_no].Option1 ? 'checked' : ''}><label>${ques[ques_no].Option1}</label><br>
+                <input type='radio' name='ans' value='${ques[ques_no].Option2}' ${given_answer[ques_no] === ques[ques_no].Option2 ? 'checked' : ''}><label>${ques[ques_no].Option2}</label><br>
+                <input type='radio' name='ans' value='${ques[ques_no].Option3}' ${given_answer[ques_no] === ques[ques_no].Option3 ? 'checked' : ''}><label>${ques[ques_no].Option3}</label><br>
+                <input type='radio' name='ans' value='${ques[ques_no].Option4}' ${given_answer[ques_no] === ques[ques_no].Option4 ? 'checked' : ''}><label>${ques[ques_no].Option4}</label><br>
+            </form>`
+                    
+                    const quiz_form=document.getElementById("quiz_form");
+                    quiz_form.addEventListener('change',(event)=>{
+                                                                if(event.target.name==='ans'){
+                                                                    given_answer[ques_no]=event.target.value
+                                                                }
+                    
+                    })
+                    if(ques_no>0){
+                        const previous=document.getElementById("previous");
+                        previous.style.display='block';
+                        previous.innerHTML=`<button id="previousbutton">Previous</button>`;
+                        let previousbutton=document.getElementById("previousbutton");
+                        previousbutton.addEventListener('click',()=>{
+                                                                    ques_no--;
+                                                                    question_change();
+                                                                    }
+                                                        );
+                    }
+                    else{
+                        const previous=document.getElementById("previous");
+                        previous.style.display='none';
+                    }
+                                                    
+                    if(ques_no<ques.length-1){
+                        const next=document.getElementById('next');
+                       next.innerHTML=`<button id="nextbutton">Next</button>`;
+                       let nextbutton=document.getElementById("nextbutton");
+                       nextbutton.addEventListener('click',()=>{
+                                                                ques_no++;
+                                                                question_change();
+                                                                }                                        
+                                                    );
+                    }    
+                    else{
+                        const next=document.getElementById('next');
+                        next.innerHTML=`<button id="submit_button">Submit</button>`;
+                        let submit_button=document.getElementById("submit_button");
+                        submit_button.addEventListener('click',()=>{
+                                                                    
+                                                                    for (let i = 0; i < ques.length; i++) {
+                                                                        if (given_answer[i] === ques[i].Correct_option) {
+                                                                            mark++;
+                                                                        }
+                                                                    }
+                                                                    let timeTakenInMinutes = Math.floor(time_taken / 60);
+
+                                                                   window.location.href=`/score_page/${mark}/${user_id}/${quiz_id}/${timeTakenInMinutes}`;
+                                                                    }
+                                                        )
+                    } 
+                    
+                }                                                 
+            }
+        </script>
+    </body>
+</html>

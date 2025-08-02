@@ -1,0 +1,19 @@
+<!DOCTYPE html5>
+<head>
+    <title>Summary</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='summmary.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="button-containter">
+        <button class="back" onclick="window.location.href='/back_profilesummary_user_dashboard/{{user_id}}'">&larr;</button>
+    </div>
+    <h2>User Quiz Performance</h2>
+    {% if graph %}
+        <img src="data:image/png;base64,{{ graph }}" alt="User Score Graph" />
+    {% else %}
+        <p>No data available to display the graph.</p>
+    {% endif %}
+
+</body>

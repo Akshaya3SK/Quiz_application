@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;    
+    height: 80vh;          
+    background-color: rgb(206, 206, 206);
+    color :rgb(0, 0, 0);
+    margin:70px 400px;
+    border:2px solid rgb(24, 36, 54);
+    padding-top: 0px;
+
+}
+
+#adminpage,
+#userpage{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #002348;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+}
+
+#adminpage:hover,
+#userpage:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

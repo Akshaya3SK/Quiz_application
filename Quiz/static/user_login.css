@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;    
+    height: 90vh;         
+    background-color: #cecece;
+    color :rgb(0, 0, 0);
+}
+form label,
+form input{
+    margin-bottom:10px;
+    font-size: 18px;
+}
+#formdata{
+    
+}
+
+form input[type="text"],
+form input[type="password"] {
+    font-size: 16px; 
+    padding: 8px; 
+    border: 2px solid #ccc;
+    border-radius: 8px; 
+    width: 130%; 
+    box-sizing: border-box; 
+}
+
+
+
+#button,
+button{
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #002348;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+}
+#button:hover,
+button:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
