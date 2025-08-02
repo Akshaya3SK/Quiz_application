@@ -41,8 +41,25 @@ SQLite is used for the backend. Tables include:
 
 ## 📁 Folder Structure
 
+```
+quiz-app/
+├── app.py                      
+├── requirements.txt          
+├── static/                    
+│   ├── admin_dashboard.css
+│   ├── create_quiz.css
+│   ├── user_login.css
+│   └── ... (etc.)
+├── templates/                 
+│   ├── admin_dashboard.html
+│   ├── user_login.html
+│   ├── create_subject.html
+│   └── ... (etc.)
+├── models/                     
+├── instance/                  
 
 
+```
 ## 🛠️ Installation & Setup
 
 ### 1. Clone the Repository
